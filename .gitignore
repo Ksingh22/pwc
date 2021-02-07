@@ -1,4 +1,4 @@
 # Project exclude paths
 /target/
-/Drivers/
+/Drivers/chromedriver.exe
 /Test_reports/
