@@ -16,15 +16,15 @@ public class SearchPageSteps extends BaseTests {
     }
 
     @When("I click on the Magnifying glass icon to perform a search")
-    public void i_click_on_the_magnifying_glass_icon_to_perform_a_search() throws InterruptedException {
-        Thread.sleep(2000);
+    public void i_click_on_the_magnifying_glass_icon_to_perform_a_search()  {
+
         search.clickSearchIcon();
 
     }
 
     @When("I Enter the text {string} and submit the search")
-    public void i_enter_the_text(String search_text) throws InterruptedException {
-        Thread.sleep(2000);
+    public void i_enter_the_text(String search_text)  {
+
         search.enterSearchText(search_text);
 
     }
@@ -36,8 +36,8 @@ public class SearchPageSteps extends BaseTests {
     }
 
     @Then("I am taken to the search result page")
-    public void i_am_taken_to_the_search_result_page() throws InterruptedException {
-        Thread.sleep(2000);
+    public void i_am_taken_to_the_search_result_page()  {
+
         if(driver.getPageSource().contains("Showing search results for")) {
             System.out.println("search result text is present");
         }else {
@@ -46,8 +46,7 @@ public class SearchPageSteps extends BaseTests {
     }
 
     @Then("I am presented with at least one search result")
-    public void i_am_presented_with_at_least_one_search_result() throws InterruptedException {
-        Thread.sleep(2000);
+    public void i_am_presented_with_at_least_one_search_result() {
         search.verifySearchResults();
         tearDown();
     }

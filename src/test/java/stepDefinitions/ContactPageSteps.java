@@ -1,8 +1,11 @@
 package stepDefinitions;
 
 import PageObjects.ContactUsPage;
+import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.*;
 import utilities.BaseTests;
+
+import java.util.Collections;
 
 public class ContactPageSteps extends BaseTests {
 
@@ -23,16 +26,15 @@ public class ContactPageSteps extends BaseTests {
     }
 
     @Then("I am taken to the contact us page")
-    public void i_am_taken_to_the_contact_us_page() throws InterruptedException {
-        Thread.sleep(2000);
-        contact.clickContactlink();
+    public void i_am_taken_to_the_contact_us_page()  {
+                contact.clickContactlink();
 
     }
 
     @Then("I am presented with the below options for contacts")
-    public void i_am_presented_with_the_below_options_for_contacts() throws InterruptedException {
-        Thread.sleep(2000);
-        contact.verifyAllContactLinks();
+    public void i_am_presented_with_the_below_options_for_contacts(DataTable table)  {
+       // contact.verifyAllContactLinks();
+        contact.all_links(table);
         tearDown();
        // driver.close();
     }

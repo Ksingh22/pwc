@@ -1,19 +1,24 @@
 package PageObjects;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
 
 public class SearchPage {
 
         public WebDriver driver;
+        public WebDriverWait wait;
         public SearchPage(WebDriver rdriver){
             driver = rdriver;
             PageFactory.initElements(rdriver,this);
+            wait = new WebDriverWait(driver, 20);
         }
     @FindBy(xpath="//div[@id='wrapper']/header/div/div/i[2]")
     WebElement searchIcon;
@@ -26,10 +31,12 @@ public class SearchPage {
 
 
     public void clickSearchIcon() {
+        wait.until(ExpectedConditions.elementToBeClickable(searchIcon));
         searchIcon.click();
     }
 
     public void enterSearchText(String search_text) {
+        wait.until(ExpectedConditions.visibilityOf(searchInputTextField));
         searchInputTextField.sendKeys(search_text);
     }
 

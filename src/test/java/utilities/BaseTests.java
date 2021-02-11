@@ -2,11 +2,12 @@ package utilities;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
 import java.util.concurrent.TimeUnit;
 
 public class BaseTests {
     public WebDriver driver;
-
 
     public void setUp() {
         //please create a Drivers folder on project level and download Chrome driver
